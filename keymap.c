@@ -103,14 +103,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |------+------+------+------+------+------+------|   |------|------+------+------+------+------+------|
    * |      | LSft |   Z  |   X  |   C  |   V  |  B   |   |  N   |   M  | PGUP |  UP  | PGDN | INS  | VOLD |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * |Reset |      | LGUI | LAlt |      | META |Space |   |Space | SYMB | LEFT | DOWN | RIGHT| PRTSC| MUTE |
+   * |Reset |      | LGUI | LAlt | SYMB | META |Space |   |Space | SYMB | LEFT | DOWN | RIGHT| PRTSC| MUTE |
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [BASE] = LAYOUT( \
     KC_ESC,   KC_TAB,  JP_Q,   JP_W,    JP_E,    JP_R,     JP_T,              JP_Y,   JP_U,    JP_I,    JP_O,    JP_P,     KC_DEL,     RCS(JP_M), \
     JP_ZKHK,  KC_RCTL, JP_A,   JP_S,    JP_D,    JP_F,     JP_G,              JP_H,   JP_J,    JP_K,    JP_L,    KC_ENT,   KC_BSPC,    KC_VOLU,   \
     XXXXXXX,  KC_LSFT, JP_Z,   JP_X,    JP_C,    JP_V,     JP_B,              JP_N,   JP_M,    KC_PGUP, KC_UP,   KC_PGDN,  KC_INSERT,  KC_VOLD,   \
-    RESET,    XXXXXXX, XXXXXXX,KC_LGUI, KC_LALT, MO(META), KC_SPC,            KC_SPC, MO(SYMB),KC_LEFT, KC_DOWN, KC_RGHT,  KC_PSCREEN, KC_MUTE    \
+    RESET,    XXXXXXX, KC_LGUI,KC_LALT, MO(SYMB),MO(META), KC_SPC,            KC_SPC, MO(SYMB),KC_LEFT, KC_DOWN, KC_RGHT,  KC_PSCREEN, KC_MUTE    \
   ),
 
   /* META
