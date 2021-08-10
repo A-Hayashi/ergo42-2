@@ -92,41 +92,42 @@
     // #define JP_QUES S(JP_SLSH) // ?
     // #define JP_UNDS S(JP_BSLS) // _
 
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   /* BASE
    * ,------------------------------------------------.   ,------------------------------------------------.
-   * | ESC  | Tab  |   Q  |   W  |   E  |   R  |  T   |   |  Y   |   U  |   I  |   O  |   P  |  Del |      |
+   * | ESC  | Tab  |   Q  |   W  |   E  |   R  |  T   |   |  Y   |   U  |   I  |   O  |   P  |  Del |MICOFF|
    * |------+------+------+------+------+------+------|   |-------------+------+------+------+------+------|
-   * | ZKHK | RCtrl|   A  |   S  |   D  |   F  |  G   |   |  H   |   J  |   K  |   L  | Enter| Bksp |      |
+   * | ZKHK | RCtrl|   A  |   S  |   D  |   F  |  G   |   |  H   |   J  |   K  |   L  | Enter| Bksp | VOLU |
    * |------+------+------+------+------+------+------|   |------|------+------+------+------+------+------|
-   * |      | LSft |   Z  |   X  |   C  |   V  |  B   |   |  N   |   M  | PGUP |  UP  | PGDN |      |      |
+   * |      | LSft |   Z  |   X  |   C  |   V  |  B   |   |  N   |   M  | PGUP |  UP  | PGDN | INS  | VOLD |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * |Reset |      | LGUI | LAlt |      | META |Space |   |Space | SYMB | LEFT | DOWN | RIGHT|      |      |
+   * |Reset |      | LGUI | LAlt |      | META |Space |   |Space | SYMB | LEFT | DOWN | RIGHT| PRTSC| MUTE |
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [BASE] = LAYOUT( \
-    KC_ESC,   KC_TAB,  JP_Q,   JP_W,    JP_E,    JP_R,     JP_T,              JP_Y,   JP_U,    JP_I,    JP_O,    JP_P,     KC_DEL,  XXXXXXX, \
-    JP_ZKHK,  KC_RCTL, JP_A,   JP_S,    JP_D,    JP_F,     JP_G,              JP_H,   JP_J,    JP_K,    JP_L,    KC_ENT,   KC_BSPC, XXXXXXX, \
-    XXXXXXX,  KC_LSFT, JP_Z,   JP_X,    JP_C,    JP_V,     JP_B,              JP_N,   JP_M,    KC_PGUP, KC_UP,   KC_PGDN,  XXXXXXX, XXXXXXX, \
-    RESET,    XXXXXXX, KC_LGUI, KC_LALT,XXXXXXX, MO(META), KC_SPC,            KC_SPC, MO(SYMB),KC_LEFT, KC_DOWN, KC_RGHT,  XXXXXXX, XXXXXXX  \
+    KC_ESC,   KC_TAB,  JP_Q,   JP_W,    JP_E,    JP_R,     JP_T,              JP_Y,   JP_U,    JP_I,    JP_O,    JP_P,     KC_DEL,     RCS(JP_M), \
+    JP_ZKHK,  KC_RCTL, JP_A,   JP_S,    JP_D,    JP_F,     JP_G,              JP_H,   JP_J,    JP_K,    JP_L,    KC_ENT,   KC_BSPC,    KC_VOLU,   \
+    XXXXXXX,  KC_LSFT, JP_Z,   JP_X,    JP_C,    JP_V,     JP_B,              JP_N,   JP_M,    KC_PGUP, KC_UP,   KC_PGDN,  KC_INSERT,  KC_VOLD,   \
+    RESET,    XXXXXXX, XXXXXXX,KC_LGUI, KC_LALT, MO(META), KC_SPC,            KC_SPC, MO(SYMB),KC_LEFT, KC_DOWN, KC_RGHT,  KC_PSCREEN, KC_MUTE    \
   ),
 
   /* META
    * ,------------------------------------------------.   ,------------------------------------------------.
-   * | ESC  | Tab  |  F1  |  F2  |  F3  |  F4  |  F5  |   |  F6  |  F7  |  F8  |  F9  |   -  |  ^   |  ¥   |
+   * | ESC  | Tab  |      |      |      |      |      |   |      |      |      |      |   -  |  ^   |  ¥   |
    * |------+------+------+------+------+------+------|   |-------------+------+------+------+------+------|
-   * | ZKHK | RCtrl|  F10 |  F11 | F12  |      |      |   | LEFT | DOWN |  UP  | RIGHT|      |  @   |  [   |
+   * | ZKHK | RCtrl|  F1  |  F2  |  F3  |  F4  |  F5  |   |  F6  |  F7  |  F8  |  F9  | F10  |  @   |  [   |
    * |------+------+------+------+------+------+------|   |------|------+------+------+------+------+------|
-   * |      | LSft |      |      |      |      |      |   |      |      |      |      |  ;   |   :  |  ]   |
+   * |      | LSft |  F11 | F12  |      |      |      |   |      |      |      |      |  ;   |   :  |  ]   |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
    * |Reset |      | LGUI | LAlt |      | META |Space |   |Space | SYMB |      |  ,   |   .  |  /   |  \   |
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [META] = LAYOUT( \
-    _______, _______,   KC_F1,    KC_F2,   KC_F3,   KC_F4,   KC_F5,             KC_F6,      KC_F7,    KC_F8,    KC_F9,      JP_MINS,  JP_CIRC,    JP_YEN,  \
-    _______, _______,   KC_F10,   KC_F11,  KC_F12,  XXXXXXX, XXXXXXX,           KC_LEFT,    KC_DOWN,  KC_UP,    KC_RGHT,    XXXXXXX,  JP_AT,      JP_LBRC, \
-    _______, _______,   XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,           XXXXXXX,    XXXXXXX,  XXXXXXX,  XXXXXXX,    JP_SCLN,  JP_COLN,    JP_RBRC, \
+    _______, _______,   XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,           XXXXXXX,    XXXXXXX,  XXXXXXX,  XXXXXXX,    JP_MINS,  JP_CIRC,    JP_YEN,  \
+    _______, _______,   KC_F1,    KC_F2,   KC_F3,   KC_F4,   KC_F5,             KC_F6,      KC_F7,    KC_F8,    KC_F9,      KC_F10,   JP_AT,      JP_LBRC, \
+    _______, _______,   KC_F11,   KC_F12,  XXXXXXX, XXXXXXX, XXXXXXX,           XXXXXXX,    XXXXXXX,  XXXXXXX,  XXXXXXX,    JP_SCLN,  JP_COLN,    JP_RBRC, \
     _______, _______,   _______,  _______, _______, _______, _______,           _______,    _______,  XXXXXXX,  JP_COMM,    JP_DOT,   JP_SLSH,    JP_BSLS  \
   ),
 
