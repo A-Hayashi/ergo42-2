@@ -100,16 +100,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |------+------+------+------+------+------+------|   |-------------+------+------+------+------+------|
    * | ZKHK | RCtrl|   A  |   S  |   D  |   F  |  G   |   |  H   |   J  |   K  |   L  | Enter| Bksp |      |
    * |------+------+------+------+------+------+------|   |------|------+------+------+------+------+------|
-   * |      | LSft |   Z  |   X  |   C  |   V  |  B   |   |  N   |   M  |      | PGUP |  UP  | PGDN |      |
+   * |      | LSft |   Z  |   X  |   C  |   V  |  B   |   |  N   |   M  | PGUP |  UP  | PGDN |      |      |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * |Reset |      | LGUI | LAlt | META | SYMB |Space |   |Space | SYMB | META | LEFT | DOWN | RIGHT|      |
+   * |Reset |      | LGUI | LAlt |      | META |Space |   |Space | SYMB | LEFT | DOWN | RIGHT|      |      |
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [BASE] = LAYOUT( \
-    KC_ESC,   KC_TAB,  JP_Q,   JP_W,    JP_E,    JP_R,     JP_T,              JP_Y,   JP_U,    JP_I,    JP_O,    JP_P,      KC_ENT,   KC_DEL,  \
-    JP_ZKHK,  KC_RCTL, JP_A,   JP_S,    JP_D,    JP_F,     JP_G,              JP_H,   JP_J,    JP_K,    JP_L,    KC_ENT,    KC_ENT,   KC_BSPC, \
-    XXXXXXX,  KC_LSFT, JP_Z,   JP_X,    JP_C,    JP_V,     JP_B,              JP_N,   JP_M,    XXXXXXX, XXXXXXX, KC_PGUP,   KC_UP,    KC_PGDN, \
-    RESET,    XXXXXXX, KC_LGUI, KC_LALT,MO(META),MO(SYMB), KC_SPC,            KC_SPC, MO(SYMB),MO(META),XXXXXXX, KC_LEFT,   KC_DOWN,  KC_RGHT  \
+    KC_ESC,   KC_TAB,  JP_Q,   JP_W,    JP_E,    JP_R,     JP_T,              JP_Y,   JP_U,    JP_I,    JP_O,    JP_P,     KC_DEL,  XXXXXXX, \
+    JP_ZKHK,  KC_RCTL, JP_A,   JP_S,    JP_D,    JP_F,     JP_G,              JP_H,   JP_J,    JP_K,    JP_L,    KC_ENT,   KC_BSPC, XXXXXXX, \
+    XXXXXXX,  KC_LSFT, JP_Z,   JP_X,    JP_C,    JP_V,     JP_B,              JP_N,   JP_M,    KC_PGUP, KC_UP,   KC_PGDN,  XXXXXXX, XXXXXXX, \
+    RESET,    XXXXXXX, KC_LGUI, KC_LALT,XXXXXXX, MO(META), KC_SPC,            KC_SPC, MO(SYMB),KC_LEFT, KC_DOWN, KC_RGHT,  XXXXXXX, XXXXXXX  \
   ),
 
   /* META
@@ -120,14 +120,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |------+------+------+------+------+------+------|   |------|------+------+------+------+------+------|
    * |      | LSft |      |      |      |      |      |   |      |      |      |      |  ;   |   :  |  ]   |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * |Reset |      | LGUI | LAlt | META | SYMB |Space |   |Space | SYMB | META |  ,   |   .  |  /   |  \   |
+   * |Reset |      | LGUI | LAlt |      | META |Space |   |Space | SYMB |      |  ,   |   .  |  /   |  \   |
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [META] = LAYOUT( \
     _______, _______,   KC_F1,    KC_F2,   KC_F3,   KC_F4,   KC_F5,             KC_F6,      KC_F7,    KC_F8,    KC_F9,      JP_MINS,  JP_CIRC,    JP_YEN,  \
     _______, _______,   KC_F10,   KC_F11,  KC_F12,  XXXXXXX, XXXXXXX,           KC_LEFT,    KC_DOWN,  KC_UP,    KC_RGHT,    XXXXXXX,  JP_AT,      JP_LBRC, \
     _______, _______,   XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,           XXXXXXX,    XXXXXXX,  XXXXXXX,  XXXXXXX,    JP_SCLN,  JP_COLN,    JP_RBRC, \
-    _______, _______,   _______,  _______, _______, _______, _______,           _______,    _______,  _______,  JP_COMM,    JP_DOT,   JP_SLSH,    JP_BSLS  \
+    _______, _______,   _______,  _______, _______, _______, _______,           _______,    _______,  XXXXXXX,  JP_COMM,    JP_DOT,   JP_SLSH,    JP_BSLS  \
   ),
 
   /* SYMB
@@ -138,13 +138,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    * |------+------+------+------+------+------+------|   |------|------+------+------+------+------+------|
    * |      | LSft |      |      |      |      |      |   |      |      |      |      |   +  |  *   |   }  |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * |Reset |      | LGUI | LAlt | META | SYMB |Space |   |Space | SYMB | META |   <  |   >  |   ?  |  _   |
+   * |Reset |      | LGUI | LAlt |      | META |Space |   |Space | SYMB |      |   <  |   >  |   ?  |  _   |
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [SYMB] = LAYOUT( \
     _______, _______, JP_EXLM, JP_DQUO, JP_HASH, JP_DLR,  JP_PERC,          JP_AMPR,    JP_QUOT, JP_LPRN, JP_RPRN, JP_EQL,  JP_TILD, JP_PIPE, \
     _______, _______, JP_1,    JP_2,    JP_3,    JP_4,    JP_5,             JP_6,       JP_7,    JP_8,    JP_9,    JP_0,    JP_GRV,  JP_LCBR,  \
     _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, JP_PLUS, JP_ASTR, JP_RCBR,  \
-    _______, _______, _______, _______, _______, _______, _______,          _______,    _______, _______, JP_LABK, JP_RABK, JP_QUES, JP_UNDS   \
+    _______, _______, _______, _______, _______, _______, _______,          _______,    _______, XXXXXXX, JP_LABK, JP_RABK, JP_QUES, JP_UNDS   \
   )
 };
