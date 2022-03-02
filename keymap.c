@@ -63,7 +63,7 @@
 // // Row 5
 // #define JP_MHEN KC_INT5 // Muhenkan (無変換)
 // #define JP_HENK KC_INT4 // Henkan (変換)
-// #define JP_KANA KC_INT2 // Katakana ↔ Hiragana ↔ Rōmaji (カタカナ ↔ ひらがな ↔ ローマ字)
+// #defiKANA KC_INT2 // Katakana ↔ Hiragana ↔ Rōmaji (カタカナ ↔ ひらがな ↔ ローマ字)
 
 // // Row 1
     // #define JP_EXLM S(JP_1)    // !
@@ -97,55 +97,55 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   /* BASE
    * ,------------------------------------------------.   ,------------------------------------------------.
-   * | ESC  | Tab  |   Q  |   W  |   E  |   R  |  T   |   |  Y   |   U  |   I  |   O  |   P  |  Del |MICOFF|
+   * |MICOFF| Tab  |   Q  |   W  |   E  |   R  |  T   |   |  Y   |   U  |   I  |   O  |   P  |   @  |   [  |
    * |------+------+------+------+------+------+------|   |-------------+------+------+------+------+------|
-   * | ZKHK | RCtrl|   A  |   S  |   D  |   F  |  G   |   |  H   |   J  |   K  |   L  | Enter| Bksp | VOLU |
+   * | VOLU | RCtrl|   A  |   S  |   D  |   F  |  G   |   |  H   |   J  |   K  |   L  |  ;   |  :   |   ]  |
    * |------+------+------+------+------+------+------|   |------|------+------+------+------+------+------|
-   * |      | LSft |   Z  |   X  |   C  |   V  |  B   |   |  N   |   M  | PGUP |  UP  | PGDN | INS  | VOLD |
+   * | VOLD | LSft |   Z  |   X  |   C  |   V  |  B   |   |  N   |   M  |   ,  |  .   |   /  |   \  |      |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * |Reset |      | LGUI | LAlt | SYMB | META |Space |   |Space | SYMB | LEFT | DOWN | RIGHT| PRTSC| MUTE |
+   * | MUTE |      | LGUI | LAlt | ESC  | META |Enter |   |Space | SYMB | ZKHK |      | PRTSC| INS  |      |
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [BASE] = LAYOUT( \
-    KC_ESC,   KC_TAB,  JP_Q,   JP_W,    JP_E,    JP_R,     JP_T,              JP_Y,   JP_U,    JP_I,    JP_O,    JP_P,     KC_DEL,     RCS(JP_M), \
-    JP_ZKHK,  KC_RCTL, JP_A,   JP_S,    JP_D,    JP_F,     JP_G,              JP_H,   JP_J,    JP_K,    JP_L,    KC_ENT,   KC_BSPC,    KC_VOLU,   \
-    XXXXXXX,  KC_LSFT, JP_Z,   JP_X,    JP_C,    JP_V,     JP_B,              JP_N,   JP_M,    KC_PGUP, KC_UP,   KC_PGDN,  KC_INSERT,  KC_VOLD,   \
-    RESET,    XXXXXXX, KC_LGUI,KC_LALT, MO(SYMB),MO(META), KC_SPC,            KC_SPC, MO(SYMB),KC_LEFT, KC_DOWN, KC_RGHT,  KC_PSCREEN, KC_MUTE    \
+    RCS(JP_M),  KC_TAB,  JP_Q,   JP_W,    JP_E,    JP_R,     JP_T,             JP_Y,   JP_U,    JP_I,    JP_O,    JP_P,      JP_AT,     JP_LBRC, \
+    KC_VOLU,    KC_RCTL, JP_A,   JP_S,    JP_D,    JP_F,     JP_G,              JP_H,   JP_J,    JP_K,    JP_L,    JP_SCLN,   JP_COLN,   JP_RBRC,   \
+    KC_VOLD,    KC_LSFT, JP_Z,   JP_X,    JP_C,    JP_V,     JP_B,              JP_N,   JP_M,    JP_COMM, JP_DOT,  JP_SLSH,   JP_BSLS,   XXXXXXX,  \
+    KC_MUTE,    XXXXXXX, KC_LGUI,KC_LALT, KC_ESC,  MO(META), KC_ENT,            KC_SPC, MO(SYMB),JP_ZKHK, XXXXXXX, KC_PSCREEN,KC_INSERT, XXXXXXX    \
   ),
 
   /* META
    * ,------------------------------------------------.   ,------------------------------------------------.
-   * | ESC  | Tab  |      |      |      |      |      |   |      |      |      |      |   -  |  ^   |  ¥   |
-   * |------+------+------+------+------+------+------|   |-------------+------+------+------+------+------|
-   * | ZKHK | RCtrl|  F1  |  F2  |  F3  |  F4  |  F5  |   |  F6  |  F7  |  F8  |  F9  | F10  |  @   |  [   |
-   * |------+------+------+------+------+------+------|   |------|------+------+------+------+------+------|
-   * |      | LSft |  F11 | F12  |      |      |      |   |      |      |      |      |  ;   |   :  |  ]   |
+   * |      | Tab  |  F1  |  F2  |  F3  |  F4  |  F5  |   | HOME | PGUP |  UP  | PGDN |   7  |  8   |  9   |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * |Reset |      | LGUI | LAlt |      | META |Space |   |Space | SYMB |      |  ,   |   .  |  /   |  \   |
+   * |      | RCtrl|  F6  |  F7  |  F8  |  F9  | F10  |   | END  | LEFT | DOWN | RIGHT|   4  |  5   |  6   |
+   * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
+   * |      | LSft |  F11 | F12  |      |      |      |   |      | Bksp | Del  |      |   1  |  2   |  3   |
+   * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
+   * |      |      | LGUI | LAlt | ESC  | META |Enter |   |Space | SYMB | ZKHK |      |   0  |      |Reset |
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [META] = LAYOUT( \
-    _______, _______,   XXXXXXX,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,           XXXXXXX,    XXXXXXX,  XXXXXXX,  XXXXXXX,    JP_MINS,  JP_CIRC,    JP_YEN,  \
-    _______, _______,   KC_F1,    KC_F2,   KC_F3,   KC_F4,   KC_F5,             KC_F6,      KC_F7,    KC_F8,    KC_F9,      KC_F10,   JP_AT,      JP_LBRC, \
-    _______, _______,   KC_F11,   KC_F12,  XXXXXXX, XXXXXXX, XXXXXXX,           XXXXXXX,    XXXXXXX,  XXXXXXX,  XXXXXXX,    JP_SCLN,  JP_COLN,    JP_RBRC, \
-    _______, _______,   _______,  _______, _______, _______, _______,           _______,    _______,  XXXXXXX,  JP_COMM,    JP_DOT,   JP_SLSH,    JP_BSLS  \
+    XXXXXXX, _______,   KC_F1,    KC_F2,   KC_F3,   KC_F4,   KC_F5,           KC_HOME,    KC_PGUP,  KC_UP,   KC_PGDN,    JP_7,  JP_8,    JP_9,  \
+    XXXXXXX, _______,   KC_F6,    KC_F7,   KC_F8,    KC_F9,  KC_F10,          KC_END,     KC_LEFT,  KC_DOWN, KC_RGHT,    JP_4,  JP_5,    JP_6, \
+    XXXXXXX, _______,   KC_F11,   KC_F12,  XXXXXXX, XXXXXXX, XXXXXXX,         XXXXXXX,    KC_BSPC,  KC_DEL,  XXXXXXX,    JP_1,  JP_2,    JP_3, \
+    XXXXXXX, XXXXXXX,   _______,  _______, _______, _______, _______,         _______,    _______,  _______, XXXXXXX,    JP_0,  XXXXXXX, RESET  \
   ),
 
   /* SYMB
    * ,------------------------------------------------.   ,------------------------------------------------.
-   * | ESC  | Tab  |   !  |   "  |   #  |   $  |   %  |   |  &   |  '   |   (  |   )  |   =  |   ~  |   |  | 
-   * |------+------+------+------+------+------+------|   |-------------+------+------+------+------+------|
-   * | ZKHK | RCtrl|   1  |   2  |  3   |  4   |  5   |   |  6   |  7   |  8   |  9   |  0   |   `  |   {  |
-   * |------+------+------+------+------+------+------|   |------|------+------+------+------+------+------|
-   * |      | LSft |      |      |      |      |      |   |      |      |      |      |   +  |  *   |   }  |
+   * |      | Tab  |  !   |   "  |  #   |   $  |  %   |   |   &  |   '  |   (  |   )  |  =   |  ~   |  |   |
    * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
-   * |Reset |      | LGUI | LAlt |      | META |Space |   |Space | SYMB |      |   <  |   >  |   ?  |  _   |
+   * |      | RCtrl|      |      |      |      |      |   |      |      |      |      |  -   |  ^   |  \   |
+   * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
+   * |      | LSft |      |      |      |      |      |   |      |      |      |      |      |      |      |
+   * |------+------+------+------+------+------+------|   |------+------+------+------+------+------+------|
+   * |      |      | LGUI | LAlt | ESC  | META |Enter |   |Space | SYMB | ZKHK |      |      |      |      |
    * `------------------------------------------------'   `------------------------------------------------'
    */
   [SYMB] = LAYOUT( \
-    _______, _______, JP_EXLM, JP_DQUO, JP_HASH, JP_DLR,  JP_PERC,          JP_AMPR,    JP_QUOT, JP_LPRN, JP_RPRN, JP_EQL,  JP_TILD, JP_PIPE, \
-    _______, _______, JP_1,    JP_2,    JP_3,    JP_4,    JP_5,             JP_6,       JP_7,    JP_8,    JP_9,    JP_0,    JP_GRV,  JP_LCBR,  \
-    _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, JP_PLUS, JP_ASTR, JP_RCBR,  \
-    _______, _______, _______, _______, _______, _______, _______,          _______,    _______, XXXXXXX, JP_LABK, JP_RABK, JP_QUES, JP_UNDS   \
+    XXXXXXX, _______, JP_EXLM, JP_DQUO, JP_HASH, JP_DLR,  JP_PERC,          JP_AMPR,    JP_QUOT, JP_LPRN, JP_RPRN, JP_EQL,  JP_TILD, JP_PIPE, \
+    XXXXXXX, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, JP_MINS, JP_CIRC, JP_YEN,  \
+    XXXXXXX, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,          XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,  \
+    XXXXXXX, XXXXXXX, _______, _______, _______, _______, _______,          _______,    _______, _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX   \
   )
 };
